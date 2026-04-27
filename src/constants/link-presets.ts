@@ -1,44 +1,43 @@
-import { LinkPreset, type NavBarLink } from "@/types/config";
+export type LinkPreset = 'Home' | 'About' | 'Archive' | 'Friends' | 'Sponsor' | 'Guestbook' | 'Bangumi' | 'Gallery';
 
-export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
-	[LinkPreset.Home]: {
+export interface NavBarLink {
+	name: string;
+	url: string;
+	external?: boolean;
+	icon?: string;
+}
+
+export const LinkPresets: Record<LinkPreset, NavBarLink> = {
+	Home: {
 		name: "首页",
 		url: "/",
-		icon: "material-symbols:home",
 	},
-	[LinkPreset.About]: {
+	About: {
 		name: "关于",
 		url: "/about/",
-		icon: "material-symbols:person",
 	},
-	[LinkPreset.Archive]: {
+	Archive: {
 		name: "归档",
 		url: "/archive/",
-		icon: "material-symbols:archive",
 	},
-	[LinkPreset.Friends]: {
+	Friends: {
 		name: "友链",
 		url: "/friends/",
-		icon: "material-symbols:group",
 	},
-	[LinkPreset.Sponsor]: {
+	Sponsor: {
 		name: "赞助",
 		url: "/sponsor/",
-		icon: "material-symbols:favorite",
 	},
-	[LinkPreset.Guestbook]: {
+	Guestbook: {
 		name: "留言板",
 		url: "/guestbook/",
-		icon: "material-symbols:chat",
 	},
-	[LinkPreset.Bangumi]: {
+	Bangumi: {
 		name: "番组",
 		url: "/bangumi/",
-		icon: "material-symbols:movie",
 	},
-	[LinkPreset.Gallery]: {
+	Gallery: {
 		name: "相册",
 		url: "/gallery/",
-		icon: "material-symbols:photo-library",
 	},
 };
