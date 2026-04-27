@@ -56,6 +56,11 @@ export const navBarConfig: NavBarConfig = {
 			url: "/about",
 			external: false,
 		},
+		{
+			name: "更新日志",
+			url: "/diff",
+			external: false,
+		},
 	],
 
 	// 搜索配置
