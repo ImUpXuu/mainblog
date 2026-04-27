@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
 	title: "UpXuu's Blog",
 	subtitle: "逐光而上！",
 	site_url: "https://upxuu.com", // 站点 URL
-	description: " 我是UpXuu，一个热爱生活的人。",
+	description: " UpXuu's Blog 一个学生的日常生活~",
 	keywords: ["UpXuu", "博客", "技术", "生活", "分享"], // 站点关键词
 
 	// 站点语言
