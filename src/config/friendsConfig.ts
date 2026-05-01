@@ -1,215 +1,64 @@
-import type { FriendsPageConfig, FriendLink } from "../types/config";
+import type { FriendLink, FriendsPageConfig } from "../types/config";
 
+// 可以在src/content/spec/friends.md中编写友链页面下方的自定义内容
+
+// 友链页面配置
 export const friendsPageConfig: FriendsPageConfig = {
-	title: "友链",
-	description: "在这里找到我的朋友们",
+	// 页面标题，如果留空则使用 i18n 中的翻译
+	title: "",
+
+	// 页面描述文本，如果留空则使用 i18n 中的翻译
+	description: "",
+
+	// 是否显示底部自定义内容（friends.mdx 中的内容）
 	showCustomContent: true,
+
+	// 是否显示评论区，需要先在commentConfig.ts启用评论系统
 	showComment: true,
+
+	// 是否开启随机排序配置，如果开启，就会忽略权重，构建时进行一次随机排序
 	randomizeSort: false,
 };
 
-// 友链数据
+// 友链配置
+export const friendsConfig: FriendLink[] = [
+	{
+		title: "夏夜流萤",
+		imgurl:
+			"https://weavatar.com/avatar/d252655d40d6874417a720bad0a6c5f77f8f6a1fd2f882f8f338402dc37e4190?s=640",
+		desc: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
+		siteurl: "https://blog.cuteleaf.cn",
+		tags: ["Blog"],
+		weight: 10, // 权重，数字越大排序越靠前
+		enabled: true, // 是否启用
+	},
+	{
+		title: "Firefly Docs",
+		imgurl: "https://docs-firefly.cuteleaf.cn/logo.png",
+		desc: "Firefly主题模板文档",
+		siteurl: "https://docs-firefly.cuteleaf.cn",
+		tags: ["Docs"],
+		weight: 9,
+		enabled: true,
+	},
+	{
+		title: "Astro",
+		imgurl: "https://avatars.githubusercontent.com/u/44914786?v=4&s=640",
+		desc: "The web framework for content-driven websites. ⭐️ Star to support our work!",
+		siteurl: "https://github.com/withastro/astro",
+		tags: ["Framework"],
+		weight: 8,
+		enabled: true,
+	},
+];
+
+// 获取启用的友链并进行排序
 export const getEnabledFriends = (): FriendLink[] => {
-	return [
-		{
-			title: "LsAng",
-			imgurl: "https://llds.cloud/lsang.png",
-			desc: "学习、探索中",
-			siteurl: "https://llds.cloud",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "流欺の个人博客",
-			imgurl: "https://tc.lqay.cn/LightPicture/2026/03/5f64e0f0f361e19c.png",
-			desc: "嗯对就是个博客.",
-			siteurl: "https://blog.lqay.cn/",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "zplb の博客",
-			imgurl: "https://zplb.org.cn/images/zplb.png",
-			desc: "一个喜欢网安的学生~",
-			siteurl: "https://blog.zplb.top",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "石猫博客~",
-			imgurl: "https://www.vidlii.net/usfi/avt/1HH5cpvb235.jpg",
-			desc: "一只石头做的猫",
-			siteurl: "https://imshimao.com",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "巳忆笔记",
-			imgurl: "https://tc.lleft.cn/PicGo/logo.png",
-			desc: "记住所有美好回忆",
-			siteurl: "https://lleft.cn/",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "zeroanon",
-			imgurl: "https://avatars.githubusercontent.com/u/119206123?v=4",
-			desc: "不做圣经里腐朽的诗集，要做禁书里最惊世骇俗的篇章",
-			siteurl: "https://zeroanon.com",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "NGC7293的星域",
-			imgurl: "https://xmk.life/ngc7293.png",
-			desc: "博客",
-			siteurl: "https://xmk.life/",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "瓶中虾",
-			imgurl: "https://weiyu14.top/assets/ava-e842524e.jpg",
-			desc: "只闻花香 不争朝夕",
-			siteurl: "https://weiyu14.top",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "ChenServer",
-			imgurl: "https://cn.cravatar.com/avatar/f9ff0db2d48c61f21a01f31de18643c2?d=mp&s=240",
-			desc: "🤔",
-			siteurl: "https://etaris.moe",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "沐光橙香",
-			imgurl: "https://mugcx.com/logo.png",
-			desc: "暖阳旧时光，草木亦生香",
-			siteurl: "https://mugcx.com",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "无大人生",
-			imgurl: "https://q2.qlogo.cn/headimg_dl?dst_uin=3574552394&spec=0",
-			desc: "远赴人间惊鸿宴，一睹人间盛世颜。",
-			siteurl: "https://blog.wudarensheng.top/",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "ziworld",
-			imgurl: "https://blog.ziworld.top/assect/images/avatar.webp",
-			desc: "For all time, always.",
-			siteurl: "https://blog.ziworld.top",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "爱琉璃",
-			imgurl: "",
-			desc: "",
-			siteurl: "https://www.illlt.com/",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "桃花源 TYC",
-			imgurl: "",
-			desc: "",
-			siteurl: "https://www.ty2c.com/",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "QgxsのBlog",
-			imgurl: "https://www.20210701.xyz/icon.jpeg",
-			desc: "放松心情，漫游四处，处处美景。",
-			siteurl: "https://www.20210701.xyz/",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "涵哲子居",
-			imgurl: "https://afipo.top/logo.png",
-			desc: "天哲地理，共公卿好",
-			siteurl: "https://afipo.top",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "AkiNard Blog",
-			imgurl: "https://q1.qlogo.cn/g?b=qq&nk=3833773438&s=640",
-			desc: "白云千载空悠悠.",
-			siteurl: "https://blog.578113.xyz",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "upxuu在线状态",
-			imgurl: "",
-			desc: "upxuu在线状态",
-			siteurl: "https://up.upxuu.com",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "番茄主理人",
-			imgurl: "https://q1.qlogo.cn/g?b=qq&nk=20447289&s=640",
-			desc: "坐而言不如起而行.",
-			siteurl: "https://fqzlr.com",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "Yu Qi",
-			imgurl: "https://yqamm.cc.cd/_astro/avatar.DsloLJ2B_Z2ceESW.webp",
-			desc: "生命绚烂，别被黑暗压垮。",
-			siteurl: "https://yqamm.cc.cd",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "安泽の温馨小窝",
-			imgurl: "https://anze.love/wp-content/uploads/2026/03/cropped-anze.jpg",
-			desc: "愿得一人心. ",
-			siteurl: "https://anze.love",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "玖月のメモ帳",
-			imgurl: "https://storage.mikuworld.site/Kikudzuki/avatar.png",
-			desc: "Spend your life in your own way.",
-			siteurl: "https://blog.mikuworld.site",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "wrCBDjdh Blog",
-			imgurl: "",
-			desc: "",
-			siteurl: "https://wrcbdjdh.cloud",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "LeonXieの小窝",
-			imgurl: "https://www.leonxie.cn/upload/avatar.jpg",
-			desc: "保持热爱，奔赴山海！",
-			siteurl: "https://www.leonxie.cn",
-			weight: 0,
-			enabled: true,
-		},
-		{
-			title: "目的地-Destination",
-			imgurl: "https://chrison.cn/logo.webp",
-			desc: "前程似锦，未来可期、寻得良人、共赴白头，祝你也祝我。",
-			siteurl: "https://chrison.cn",
-			weight: 0,
-			enabled: true,
-		},
-	];
+	const friends = friendsConfig.filter((friend) => friend.enabled);
+
+	if (friendsPageConfig.randomizeSort) {
+		return friends.sort(() => Math.random() - 0.5);
+	}
+
+	return friends.sort((a, b) => b.weight - a.weight);
 };

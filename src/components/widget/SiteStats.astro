@@ -61,9 +61,6 @@ const lastPostDate = latestPost
 
 const todayText = i18n(I18nKey.today);
 
-// 自定义统计 API
-const customStatsAPI = "https://upxuu.com/statsapi/alltime";
-
 const stats = [
 	{
 		icon: "material-symbols:article-outline",
@@ -85,13 +82,6 @@ const stats = [
 		label: i18n(I18nKey.siteStatsTotalWords),
 		value: totalWords,
 		formatted: true,
-	},
-	{
-		icon: "material-symbols:group-outline",
-		label: "访客数",
-		value: 0, // 将由客户端从 API 获取
-		dynamic: true,
-		id: "visitor-count",
 	},
 	{
 		icon: "material-symbols:calendar-clock-outline",
@@ -142,22 +132,7 @@ const stats = [
   </div>
 </WidgetLayout>
 
-<script is:inline define:vars={{ siteStartDate, lastPostDate, todayText, customStatsAPI }}>
-  async function fetchVisitorCount() {
-    try {
-      const response = await fetch(customStatsAPI);
-      const data = await response.json();
-      const visitorCount = data?.value || 0;
-      
-      const visitorElements = document.querySelectorAll('[data-stat-id="visitor-count"]');
-      visitorElements.forEach((element) => {
-        element.textContent = visitorCount.toLocaleString();
-      });
-    } catch (error) {
-      console.error('Failed to fetch visitor count:', error);
-    }
-  }
-
+<script is:inline define:vars={{ siteStartDate, lastPostDate, todayText }}>
   function updateDynamicStats() {
     const today = new Date();
 
@@ -196,13 +171,9 @@ const stats = [
 
   // 页面加载时更新
   updateDynamicStats();
-  fetchVisitorCount();
 
   // 页面切换时重新更新
   document.addEventListener("swup:contentReplaced", () => {
-    setTimeout(() => {
-      updateDynamicStats();
-      fetchVisitorCount();
-    }, 100);
+    setTimeout(updateDynamicStats, 100);
   });
 </script>

@@ -1,43 +1,46 @@
-export type LinkPreset = 'Home' | 'About' | 'Archive' | 'Friends' | 'Sponsor' | 'Guestbook' | 'Bangumi' | 'Gallery';
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import { LinkPreset, type NavBarLink } from "@/types/config";
 
-export interface NavBarLink {
-	name: string;
-	url: string;
-	external?: boolean;
-	icon?: string;
-}
-
-export const LinkPresets: Record<LinkPreset, NavBarLink> = {
-	Home: {
-		name: "首页",
+export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
+	[LinkPreset.Home]: {
+		name: i18n(I18nKey.home),
 		url: "/",
+		icon: "material-symbols:home",
 	},
-	About: {
-		name: "关于",
+	[LinkPreset.About]: {
+		name: i18n(I18nKey.about),
 		url: "/about/",
+		icon: "material-symbols:person",
 	},
-	Archive: {
-		name: "归档",
+	[LinkPreset.Archive]: {
+		name: i18n(I18nKey.archive),
 		url: "/archive/",
+		icon: "material-symbols:archive",
 	},
-	Friends: {
-		name: "友链",
+	[LinkPreset.Friends]: {
+		name: i18n(I18nKey.friends),
 		url: "/friends/",
+		icon: "material-symbols:group",
 	},
-	Sponsor: {
-		name: "赞助",
+	[LinkPreset.Sponsor]: {
+		name: i18n(I18nKey.sponsor),
 		url: "/sponsor/",
+		icon: "material-symbols:favorite",
 	},
-	Guestbook: {
-		name: "留言板",
+	[LinkPreset.Guestbook]: {
+		name: i18n(I18nKey.guestbook),
 		url: "/guestbook/",
+		icon: "material-symbols:chat",
 	},
-	Bangumi: {
-		name: "番组",
+	[LinkPreset.Bangumi]: {
+		name: i18n(I18nKey.bangumi),
 		url: "/bangumi/",
+		icon: "material-symbols:movie",
 	},
-	Gallery: {
-		name: "相册",
+	[LinkPreset.Gallery]: {
+		name: i18n(I18nKey.gallery),
 		url: "/gallery/",
+		icon: "material-symbols:photo-library",
 	},
 };
