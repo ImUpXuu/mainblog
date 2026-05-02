@@ -39,32 +39,32 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 	links.push({
 		name: "碎碎念",
 		url: "/shuoshuo",
-		icon: "material-symbols:edit_note",
+		icon: "fa7-solid:note-sticky",
 	});
 
 	// 更多菜单
 	links.push({
 		name: "更多",
 		url: "/more/",
-		icon: "material-symbols:more_horiz",
+		icon: "fa7-solid:ellipsis",
 		children: [
 			{
 				name: "画廊",
 				url: "https://edit.upxuu.com/s/g",
 				external: true,
-				icon: "material-symbols:image",
+				icon: "fa7-solid:images",
 			},
 			{
 				name: "状态",
 				url: "https://up.upxuu.com/",
 				external: true,
-				icon: "material-symbols:signal_cellular_alt",
+				icon: "fa7-solid:chart-line",
 			},
 			{
 				name: "统计",
 				url: "https://stats.upxuu.com/share/sFftlqBkgk2z9JM2",
 				external: true,
-				icon: "material-symbols:bar_chart",
+				icon: "fa7-solid:chart-simple",
 			},
 		],
 	});
