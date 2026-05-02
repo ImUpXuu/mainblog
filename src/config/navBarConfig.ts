@@ -32,7 +32,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		name: "开往",
 		url: "https://www.travellings.cn/go.html",
 		external: true,
-		icon: "material-symbols:directions_railway",
+		icon: "material-symbols:train",
 	});
 
 	// 碎碎念
