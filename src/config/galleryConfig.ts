@@ -19,7 +19,7 @@ export const galleryConfig: GalleryConfig = {
 			description: "",
 			location: "赵县",
 			date: "2026-05-02",
-			tags: ["赵县"],
+			tags: ["旅行✈️"],
 		},
 	],
 
